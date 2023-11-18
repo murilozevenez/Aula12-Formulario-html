@@ -6,7 +6,105 @@
     <title>Formulario</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <form id="form_cadastro">
+        <label for="Primeiro_nome">Primeiro nome:</label>
+        <input type="text" id="Primeiro_nome" name="Primeiro_nome">
+        <label for="Ultimo_nome">Ultimo nome:</label>
+        <input type="text" id="Ultimo_nome" name="Ultimo_nome">
+
+        <div>
+        <input type="radio" id="solteiro" name="estado_civil" value="Solteiro">
+        <label for="solteiro">Solteiro</label><br>
+
+        <input type="radio" name="estado_civil" id="casado" value="casado">
+        <label for="casado">Casado</label><br>
+
+        <input type="radio" id="uniao_estavel" name="estado_civil" value="estado_civil">
+        <label for="uniao_estavel">Uniao Estável</label><br>
+
+
+        </div>
+
+        <div id="lista_redes_sociais">
+        <input type="checkbox" id="facebook" name="facebook" value="facebook">
+        <label for="facebook">Facebook</label> <br>
+
+        <input type="checkbox" id="instagram" name="instagram" value="instagram">
+        <label for="instagram">Instagram</label> <br>
+
+        <input type="checkbox" id="tiktok" name="tiktok" value="tiktok">
+        <label for="tiktok">Tiktok</label> <br>
+
+        <input type="checkbox" id="twitter" name="twitter" value="twitter">
+        <label for="twitter">Twitter</label> <br>
+        </div>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+
+    <script>
+    let form = document.getElementById("form_cadastro")
+    console.log(form)
     
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let Primeiro_nome = document.getElementById("Primeiro_nome")
+        let Ultimo_nome = document.getElementById("Ultimo_nome")
+    
+
+
+        let nome_completo = Primeiro_nome.value + " " + Ultimo_nome.value
+
+        let estado_civil = document.getElementsByName("estado_civil")
+
+        let estado_civil_atual
+        for (let i = 0; i<estado_civil.length; i++) {
+           if(estado_civil[i].checked == true) {
+            estado_civil_atual = estado_civil[i].value
+           }
+        }
+
+        console.log(estado_civil_atual)
+
+        let tem_facebook = document.getElementById("facebook").checked
+        let tem_instagram = document.getElementById("instagram").checked
+        let tem_tiktok = document.getElementById("tiktok").checked
+        let tem_twitter = document.getElementById("twitter").checked
+
+        let tem_redes_sociais = ""
+
+        if (tem_facebook) {
+            tem_redes_sociais = tem_redes_sociais + "Usa Facebook,"
+        }
+
+        if (tem_instagram) {
+            tem_redes_sociais = tem_redes_sociais + "Usa Instagram,"
+        }
+
+        if (tem_tiktok) {
+            tem_redes_sociais = tem_redes_sociais + "Usa Tiktok,"
+        }
+
+        if (tem_twitter) {
+            tem_redes_sociais = tem_redes_sociais + "Usa Twitter,"
+        }
+
+        console.log(tem_redes_sociais)
+
+     
+        let informacoes = "Nome Completo: " + nome_completo +
+        "\nEstado Civil: " + estado_civil_atual +
+        "\nRedes Sociais: " + tem_redes_sociais 
+        
+        alert(informacoes)
+
+    })
+
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,30 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+form>input {
+    margin-bottom: 10px;
+    border: 2px solid #2f2f2f;
+    border-radius: 4px;
+}
+
+form>input:focus-within {
+    border: 5px solid #ff0000;
+}
+
+form>label {
+    margin-bottom: 3px;
+}
